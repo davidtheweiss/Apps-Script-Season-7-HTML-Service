@@ -1,0 +1,30 @@
+<script>
+
+let database = {
+  'Chicken Tikki Masala': '<p>Mix one part chicken with one part tikki and one part masala</p>',
+  'Stuffed Crust Pizza': '<p>Stuff the crust of the pizza with delicious melted monzarella cheese</p>',
+  'Chicken and Waffles': '<p>1) Make some waffles<br>2) Then put fried chicken on waffles<br>3) Drizzle syrup on over waffles to taste</p>',
+  'Surf and Turf': '<p>1) Grill Steak<br>2) Boil lobster<br>3) After these two are cooked, put them on the same plate<br>4) Add on the side a dip bowl filled with melted butter</p>'
+};
+
+[...document.getElementsByClassName('meal')].forEach(meal => {
+  let mealName = meal.getElementsByTagName('h3')[0].innerText;
+  meal.addEventListener('click', _ => {
+    displayRecipe(mealName);
+    
+    let params = { 'meal': mealName };
+    
+    google.script.history.push(mealName, params, 'hash');
+    //google.script.history.replace(mealName, params, 'hash');
+  });
+});
+
+google.script.history.setChangeHandler(e => displayRecipe(e.state))
+  
+function displayRecipe(mealName) {
+  document.getElementById('mealname').innerText = mealName;
+  document.getElementById('directions').innerHTML = database[mealName];      
+}
+      
+</script>
+
