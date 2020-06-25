@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css?family=Bellota+Text&display=swap" rel="stylesheet">
+    <?!= includeExternalFile('index_css'); ?>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>Email in Pig Latin!</h1>
+      <input id='my_input' placeholder="Recipient's Email"><br>
+      <textarea id='my_textarea' placeholder='Your Message'></textarea><br>
+      <button id='my_button'>Translate and Send Email</button>
+      <p id='my_paragraph'></p>
+      
+      <script>
+        document.getElementById('my_button').addEventListener('click', _ => {
+          const email_address = document.getElementById('my_input').value;
+          const english_message = document.getElementById('my_textarea').value;
+          
+          // PIG LATIN LOGIC
+          function pigLatin(str) {
+            let vowels = ['a', 'e', 'i', 'o', 'u'];
+            let new_str = "";
+            let arr = str.split(' ');
+            
+            let pig_latin = arr.map(word => {
+              if (vowels.indexOf(word[0]) > -1) {
+                new_str = word + "way";
+                return new_str;
+              } else {
+                let firstMatch = word.match(/[aeiou]/) || 0;
+                let vowel = word.indexOf(firstMatch);
+                new_str = word.substring(vowel) + word.substring(0, vowel) + "ay";
+                return new_str;
+              }
+            });
+            
+            return pig_latin.join(' ');
+          }
+          
+          function displaySuccess(id) {
+            document.getElementById('my_paragraph').innerHTML = `Congrats, your message has sent, here is its id: ${id}`;
+          }
+          
+          function displayFailure(error) {
+            document.getElementById('my_paragraph').innerHTML = `Error: ${error}`;
+          }
+          
+          const pig_latin_message = pigLatin(english_message);
+          
+          google.script.run
+          .withSuccessHandler(displaySuccess)
+          .withFailureHandler(displayFailure)
+          .sendPigLatinEmail(email_address, pig_latin_message);
+        });
+      
+      
+      </script>
+      
+    </div>
+  </body>
+</html>
+
+
