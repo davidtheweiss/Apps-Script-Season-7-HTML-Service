@@ -1,0 +1,77 @@
+<style>
+
+body {
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  margin-bottom: 5vh;
+}
+
+#container {
+  display: grid;
+  grid-template-areas: 
+    'header header header'
+    'meal1 meal2 recipe'
+    'meal3 meal4 recipe';
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  font-family: 'Princess Sofia', cursive;
+}
+
+h1 {
+  grid-area: header;
+  color: white;
+  text-shadow: 0 1px 6px #555;
+  font-size: 84px;
+}
+
+.meal {
+  padding: 20px;
+}
+
+.meal:hover {
+  opacity: 1;
+}
+
+.meal img{
+  height: 200px;
+  box-shadow: 0 3px 10px #555;
+  border-radius: 100px;
+  transition: 0.2s all ease-in-out;
+}
+
+.meal img:hover {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+#recipe {
+  grid-area: recipe;
+  font-size: 24px;
+  background-color: #fffa;
+  border-radius: 10px;
+  padding: 15px;
+  margin-right: 28px;
+  margin-bottom: 34px;
+}
+
+#directions {
+  font-size: 16px;
+}
+
+#meal1 {
+  grid-area: meal1;
+}
+
+#meal2 {
+  grid-area: meal2;
+}
+
+#meal3 {
+  grid-area: meal3;
+}
+
+#meal4 {
+  grid-area: meal4;
+}
+
+</style>
+
