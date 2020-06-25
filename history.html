@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
+    <?!= includeExternalFile('history_css'); ?>
+  </head>
+  <body>
+  
+    <div id='container'>
+      <h1>David's Favorite Recipes</h1>
+      <div class='meal' id='meal1'>
+      <img src='https://pinchofyum.com/wp-content/uploads/Chicken-Tikka-Masala-Square.jpg'>
+      <h3>Chicken Tikki Masala</h3>
+      </div>
+      <div class='meal' id='meal2'>
+        <img src='https://d332juqdd9b8hn.cloudfront.net/wp-content/uploads/2020/03/Pizza-Inn_Triple-Cheezy_STUFFED-CRUST-1-620x620.jpg'>
+        <h3>Stuffed Crust Pizza</h3>
+      </div>
+      <div class='meal' id='meal3'>
+        <img src='https://images.food52.com/BEzCM7YTnaVuSjC-uem05bqsOso=/1200x1200/9d092b32-c957-4408-b59f-54fe333f7914--Chicken_Waffles_641_cropped.jpg'>
+        <h3>Chicken and Waffles</h3>
+      </div>
+      <div class='meal' id='meal4'>
+        <img src='https://www.kansascitysteaks.com/dyn-images/pdp_hero/Lobster_and_KC_Strip-55a16081d2d6113e3a83fa4061c6b43e.jpg'>
+        <h3>Surf and Turf</h3>
+      </div>
+      <div id='recipe'>You are viewing the recipe for: <span id='mealname'></span><hr>
+        <div id='directions'></div>
+      </div>
+    </div>
+    
+    <?!= includeExternalFile('history_js'); ?>
+  </body>
+</html>
+
+
