@@ -1,3 +1,5 @@
+const name = "David Weiss";
+
 function doGet() {
   return HtmlService.createTemplateFromFile('ep3_index').evaluate();
 }
