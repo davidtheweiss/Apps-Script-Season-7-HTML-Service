@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <?!= includeExternalFile('location_css'); ?>
+  </head>
+  <body>
+    <nav>
+      <label>Username</label>
+      <input id='my_input' placeholder='name'>
+      <a id='my_button'>Login</a>
+    </nav>
+    <div class='container'>
+      <h1>Hello<span id='name'></span></h1>
+      <div id='output_location'>
+        <h4></h4>
+      </div>
+    </div>
+    
+    <script>
+    
+      document.getElementById('my_button').addEventListener('click', _ => {
+        const name = document.getElementById('my_input').value;
+        const favoriteColors = {'David': 'orange', 'Courtney': 'lightblue', 'Peter': 'red'}
+        document.getElementById('my_button').href = <?= ScriptApp.getService().getUrl() ?> + `?name=${name}&favColor=${favoriteColors[name]}`;
+      });
+      
+      google.script.url.getLocation(location => {
+        document.getElementsByTagName('h4')[0].innerText = JSON.stringify(location.hash);
+        document.getElementById('name').innerText = `, ${location.parameter.name}`;
+        document.body.style.backgroundColor = location.parameter.favColor;
+      })
+      
+    </script>
+    
+  </body>
+</html>
+
+
