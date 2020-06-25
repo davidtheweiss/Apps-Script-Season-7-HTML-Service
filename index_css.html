@@ -1,0 +1,78 @@
+<style>
+* {
+  font-family: 'Bellota text';
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(60deg, #ffa970, #ff2870);
+  background-repeat: no-repeat;
+  background-size: inherit;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2vh 4vw;
+  width: 50vw;
+  background-color: #eee;
+  border-radius: 7px;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 3px 2px rgba(0,0,0,0.24);
+}
+
+h1 {
+  color: #333;
+  font-size: 48px;
+  font-weight: lighter;
+}
+
+textarea, input {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 30px;
+  background-color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-bottom: 2vh;
+}
+
+input {
+  width: 30%;
+}
+
+textarea {
+  resize: none;
+  width: 80%;
+  height: 20vh;
+}
+
+button {
+ cursor: pointer;
+ outline: none;
+ color: #333;
+ font-size: 16px;
+ background-image: linear-gradient(60deg, #ffa970, #ff2870);
+ padding: 10px 30px;
+ border: none;
+ border-radius: 15px;
+ margin-bottom: 2vh;
+ box-shadow: 1px 2px 5px #5555, -1px 2px 5px #5555;
+ transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  box-shadow: 1px 2px 10px #5554, -1px 2px 10px #5554;
+}
+
+button:active {
+  transform: scale(1);
+  box-shadow: 1px 2px 5px #5555, -1px 2px 5px #5555;
+}
+
+</style>
+
+
