@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <style>
+      * {
+        font-family: 'Comic Neue', cursive;
+      }
+      input {
+        font-size: 18px;
+        outline: none;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+      button {
+        cursor: select;
+        outline: none;
+        font-size: 18px;
+        padding: 7px 15px;
+        background-color: #57ff87;
+        border-radius: 5px;
+        box-shadow: 0 2px 3px #5555;
+      }
+      button:active {
+        filter: brightness(1.2);
+        box-shadow: 0 2px 3px #5550;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1>Hello, and Welcome!</h1>
+    <input id='my_input' placeholder='Insert your Data'><br>
+    <button id='my_button'>Submit</button>
+    
+    <script>
+      document.getElementById('my_button').addEventListener('click', _ => {
+      
+        const data = document.getElementById('my_input').value;
+        google.script.run
+        .withSuccessHandler(displaySuccess)
+        .inputData(data);
+        
+      });
+      
+      function displaySuccess() {
+        //google.script.host.close();
+        google.script.host.setWidth(800);
+        google.script.host.setHeight(600);
+      }
+    </script>
+    
+  </body>
+  
+</html>
+
+
